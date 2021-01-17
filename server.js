@@ -2,16 +2,44 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 3001
 const app = express()
+const mongoose = require('mongoose')
+const Book = require('./client/src/models/Book')
 
 // Define middleware here
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
 }
 
+// Connect MongoDB
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true,
+})
+
 // Define API routes here
+app.get('/books', (req, res) => {
+  console.log('hello')
+})
+
+app.post('/books', (req, res) => {
+  console.log(req.body)
+  Book.create(req.body)
+    .then((dbTransaction) => {
+      res.json(dbTransaction)
+    })
+    .catch((err) => {
+      res.status(400).json(err)
+    })
+})
+
+app.delete('/books/:id', (req, res) => {
+  console.log('hello')
+})
 
 // Send every other request to the React app
 // Define any API routes before this runs
