@@ -23,7 +23,13 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
 
 // Define API routes here
 app.get('/books', (req, res) => {
-  console.log('hello')
+  Book.find({})
+    .then((dbTransaction) => {
+      res.json(dbTransaction)
+    })
+    .catch((err) => {
+      res.status(400).json(err)
+    })
 })
 
 app.post('/books', (req, res) => {
@@ -38,7 +44,17 @@ app.post('/books', (req, res) => {
 })
 
 app.delete('/books/:id', (req, res) => {
-  console.log('hello')
+  const bookId = ObjectId(req.params.id)
+  // try {
+  //   const note = await collection.findOne({_id: ObjectId(id)})
+  //   const dbResponse = await collection.deleteOne({
+  //     _id: ObjectId(id)
+  //   })
+  //   if (!dbResponse.deletedCount) throw new Error(`Failed to delete note ${id}`)
+  //   res.json({data: note})
+  // } catch (error) {
+  //   next(error)
+  // }
 })
 
 // Send every other request to the React app
