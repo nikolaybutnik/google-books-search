@@ -5,7 +5,6 @@ import SearchResults from './SearchResults'
 function Search({ search, results, setSearch, setResults }) {
   return (
     <div>
-      <div>Hello</div>
       <SearchBar
         search={search}
         setSearch={setSearch}

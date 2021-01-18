@@ -24,8 +24,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
 // Define API routes here
 app.get('/books', (req, res) => {
   Book.find({})
-    .then((dbTransaction) => {
-      res.json(dbTransaction)
+    .then((dbBook) => {
+      res.json(dbBook)
     })
     .catch((err) => {
       res.status(400).json(err)
@@ -35,8 +35,8 @@ app.get('/books', (req, res) => {
 app.post('/books', (req, res) => {
   console.log(req.body)
   Book.create(req.body)
-    .then((dbTransaction) => {
-      res.json(dbTransaction)
+    .then((dbBook) => {
+      res.json(dbBook)
     })
     .catch((err) => {
       res.status(400).json(err)
