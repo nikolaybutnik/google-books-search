@@ -7,7 +7,11 @@ function Volume({ title, authors, description, image, link }) {
       <p>Authors: {authors}</p>
       <p>Description: {description}</p>
       <img src={image} alt={title} />
-      <p>Link to book: {link}</p>
+      <button>
+        <a href={link} target="_blank" rel="noreferrer">
+          View Book
+        </a>
+      </button>
     </div>
   )
 }

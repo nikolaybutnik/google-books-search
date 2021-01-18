@@ -7,11 +7,7 @@ function SearchResults({ results }) {
       {results.map((book) => (
         <Volume
           key={book.key}
-          title={
-            book.volumeInfo.title
-              ? book.volumeInfo.title
-              : 'No title avaialble.'
-          }
+          title={book.volumeInfo.title}
           authors={
             book.volumeInfo.authors
               ? book.volumeInfo.authors.join(', ')
@@ -27,7 +23,11 @@ function SearchResults({ results }) {
               ? book.volumeInfo.imageLinks.thumbnail
               : 'https://placehold.it/128x211'
           }
-          link={book.selfLink ? book.selfLink : 'No link available.'}
+          link={
+            book.volumeInfo.infoLink
+              ? book.volumeInfo.infoLink
+              : 'No link available.'
+          }
         />
       ))}
     </div>
