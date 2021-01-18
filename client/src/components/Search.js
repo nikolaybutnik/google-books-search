@@ -2,11 +2,15 @@ import React from 'react'
 import SearchBar from './SearchBar'
 import SearchResults from './SearchResults'
 
-function Search({ results, setSearch, handleSearch }) {
+function Search({ search, results, setSearch, setResults }) {
   return (
     <div>
       <div>Hello</div>
-      <SearchBar setSearch={setSearch} handleSearch={handleSearch} />
+      <SearchBar
+        search={search}
+        setSearch={setSearch}
+        setResults={setResults}
+      />
       <SearchResults results={results} />
     </div>
   )

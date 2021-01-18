@@ -10,21 +10,9 @@ function App() {
   const [search, setSearch] = useState('')
   const [results, setResults] = useState([])
 
-  const key = 'key=AIzaSyD7eisjTcsGCJJVejECr8iKoYCzrmdtK34'
-  const bookSearch = () => {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&${key}`)
-      .then((res) => res.json(res))
-      .then((data) => setResults(data.items))
-  }
-
   useEffect(() => {
     console.log(results)
   }, [results])
-
-  const handleSearch = (event) => {
-    event.preventDefault()
-    bookSearch()
-  }
 
   return (
     <Router>
@@ -35,9 +23,11 @@ function App() {
         path="/search"
         render={(props) => (
           <Search
+            search={search}
             results={results}
             setSearch={setSearch}
-            handleSearch={handleSearch}
+            setResults={setResults}
+            // handleSearch={handleSearch}
             {...props}
           />
         )}
