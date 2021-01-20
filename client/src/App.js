@@ -20,6 +20,20 @@ function App() {
       <Header />
       <Route
         exact
+        path="/"
+        render={(props) => (
+          <Search
+            search={search}
+            results={results}
+            setSearch={setSearch}
+            setResults={setResults}
+            // handleSearch={handleSearch}
+            {...props}
+          />
+        )}
+      />
+      <Route
+        exact
         path="/search"
         render={(props) => (
           <Search
