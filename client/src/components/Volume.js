@@ -17,7 +17,7 @@ function Volume({ title, authors, description, image, link }) {
         Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
-    })
+    }).then((res) => res.json())
   }
 
   return (
