@@ -12,10 +12,9 @@ function SavedVolume({
 }) {
   const handleDeleteBook = () => {
     // console.log(id)
-    fetch(`books/${id}`, {
+    fetch(`/books/${id}`, {
       method: 'DELETE',
       headers: {
-        Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
     })

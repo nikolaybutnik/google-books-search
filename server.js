@@ -25,7 +25,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
 app.get('/books', (req, res) => {
   Book.find({})
     .then((dbBook) => {
-      res.json(dbBook)
+      res.json({ data: dbBook })
     })
     .catch((err) => {
       res.status(400).json(err)
@@ -33,10 +33,9 @@ app.get('/books', (req, res) => {
 })
 
 app.post('/books', (req, res) => {
-  // console.log(req.body)
   Book.create(req.body)
     .then((dbBook) => {
-      res.json(dbBook)
+      res.json({ data: dbBook })
     })
     .catch((err) => {
       res.status(400).json(err)
@@ -46,13 +45,9 @@ app.post('/books', (req, res) => {
 app.delete('/books/:id', async (req, res) => {
   const bookId = req.params.id
   const deletedBook = await Book.findById(bookId)
-  // const deletedBook = await Book.findOne({
-  //   _id: mongoose.Types.ObjectId(bookId),
-  // })
-  console.log(deletedBook)
-  Book.deleteOne({ _id: mongoose.Types.ObjectId(bookId) })
-    .then((res) => {
-      res.json(deletedBook)
+  Book.deleteOne({ _id: ObjectId(bookId) })
+    .then(() => {
+      res.json({ data: deletedBook })
     })
     .catch((err) => {
       res.status(400).json(err)
