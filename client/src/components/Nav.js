@@ -11,7 +11,7 @@ function Nav() {
         backgroundColor: 'white',
       }}
     >
-      <h1 style={{ margin: '10px', marginRight: '50px' }}>
+      <h1 style={{ margin: '10px', marginRight: '50px', display: 'inline' }}>
         React Google Books Search
       </h1>
       <Link to="/search">

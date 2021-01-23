@@ -40,6 +40,7 @@ function SearchBar({ search, setSearch, setResults }) {
           placeholder="Enter a keyword"
           onChange={(event) => setSearch(event.target.value)}
           ref={inputRef}
+          style={{ marginBottom: '5px', marginLeft: '10px' }}
         ></input>
         <button type="submit" className="btn btn-primary mb-2">
           <i className="fa fa-search"></i>
