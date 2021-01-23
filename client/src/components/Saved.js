@@ -34,6 +34,8 @@ function Saved() {
               description={book.description}
               image={book.image}
               link={book.link}
+              savedBooks={savedBooks}
+              setSavedBooks={setSavedBooks}
             />
           )
         })}

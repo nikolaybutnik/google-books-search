@@ -1,6 +1,15 @@
 import React from 'react'
 
-function SavedVolume({ id, title, authors, description, image, link }) {
+function SavedVolume({
+  id,
+  title,
+  authors,
+  description,
+  image,
+  link,
+  savedBooks,
+  setSavedBooks,
+}) {
   const handleDeleteBook = () => {
     // console.log(id)
     fetch(`books/${id}`, {
@@ -10,8 +19,14 @@ function SavedVolume({ id, title, authors, description, image, link }) {
         'Content-Type': 'application/json',
       },
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
+    console.log(savedBooks)
+    const filteredBooks = savedBooks.filter((book) => {
+      return book._id !== id
+    })
+    // console.log(filteredBooks)
+    setSavedBooks(filteredBooks)
+    // .then((res) => res.json())
+    // .then((data) => console.log(data))
   }
 
   return (
