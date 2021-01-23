@@ -33,18 +33,20 @@ function Volume({ title, authors, description, image, link }) {
       <h3>{title}</h3>
       <img src={image} alt={title} style={{ border: 'Solid 5px #C83E3E' }} />
       <div style={{ margin: '10px', marginLeft: '0px' }}>
-        <button>
+        <button style={{ padding: '5px' }}>
           <a href={link} target="_blank" rel="noreferrer">
-            View Book
+            View
           </a>
         </button>
-        <button onClick={handleBookSave}>Save Book</button>
+        <button onClick={handleBookSave} style={{ padding: '5px' }}>
+          Favorite
+        </button>
       </div>
       <p>
-        <h3>Authors:</h3> {authors}
+        <h4>Authors:</h4> <p>{authors}</p>
       </p>
       <p>
-        <h3>Description:</h3> {description}
+        <h4>Description:</h4> <p>{description}</p>
       </p>
     </div>
   )

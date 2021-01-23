@@ -29,17 +29,33 @@ function SavedVolume({
   }
 
   return (
-    <div>
+    <div
+      style={{
+        border: 'solid black thin',
+        margin: '10px',
+        marginTop: '20px',
+        padding: '10px',
+        backgroundColor: '#F0F0F0',
+      }}
+    >
       <h3>{title}</h3>
-      <img src={image} alt={title} />
-      <button>
-        <a href={link} target="_blank" rel="noreferrer">
-          View Book
-        </a>
-      </button>
-      <button onClick={handleDeleteBook}>Delete</button>
-      <p>Authors: {authors}</p>
-      <p>Description: {description}</p>
+      <img src={image} alt={title} style={{ border: 'Solid 5px #C83E3E' }} />
+      <div style={{ margin: '10px', marginLeft: '0px' }}>
+        <button style={{ padding: '5px' }}>
+          <a href={link} target="_blank" rel="noreferrer">
+            View
+          </a>
+        </button>
+        <button onClick={handleDeleteBook} style={{ padding: '5px' }}>
+          Delete
+        </button>
+      </div>
+      <p>
+        <h4>Authors:</h4> <p>{authors}</p>
+      </p>
+      <p>
+        <h4>Description:</h4> <p>{description}</p>
+      </p>
     </div>
   )
 }
