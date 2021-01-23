@@ -14,7 +14,10 @@ function Saved() {
       .then((res) => res.json())
       .then((savedBooks) => {
         console.log(savedBooks)
-        setSavedBooks(savedBooks)
+        const books = savedBooks.map((book) => {
+          return { ...book, key: book._id }
+        })
+        setSavedBooks(books)
       })
   }, [])
 
@@ -24,6 +27,8 @@ function Saved() {
         {savedBooks.map((book) => {
           return (
             <SavedVolume
+              id={book._id}
+              key={book.key}
               title={book.title}
               authors={book.authors}
               description={book.description}

@@ -33,7 +33,7 @@ app.get('/books', (req, res) => {
 })
 
 app.post('/books', (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   Book.create(req.body)
     .then((dbBook) => {
       res.json(dbBook)
@@ -43,18 +43,20 @@ app.post('/books', (req, res) => {
     })
 })
 
-app.delete('/books/:id', (req, res) => {
-  const bookId = ObjectId(req.params.id)
-  // try {
-  //   const note = await collection.findOne({_id: ObjectId(id)})
-  //   const dbResponse = await collection.deleteOne({
-  //     _id: ObjectId(id)
-  //   })
-  //   if (!dbResponse.deletedCount) throw new Error(`Failed to delete note ${id}`)
-  //   res.json({data: note})
-  // } catch (error) {
-  //   next(error)
-  // }
+app.delete('/books/:id', async (req, res) => {
+  const bookId = req.params.id
+  const deletedBook = await Book.findById(bookId)
+  // const deletedBook = await Book.findOne({
+  //   _id: mongoose.Types.ObjectId(bookId),
+  // })
+  console.log(deletedBook)
+  Book.deleteOne({ _id: mongoose.Types.ObjectId(bookId) })
+    .then((res) => {
+      res.json(deletedBook)
+    })
+    .catch((err) => {
+      res.status(400).json(err)
+    })
 })
 
 // Send every other request to the React app
