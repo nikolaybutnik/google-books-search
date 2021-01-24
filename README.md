@@ -9,6 +9,8 @@
     <br />
     <a href="https://github.com/nikolaybutnik/google-books-search"><strong>Explore the docs »</strong></a>
     <br />
+    <a href="https://infinite-fortress-13464.herokuapp.com/"><strong>Deployed application »</strong></a>
+    <br />
 </p>
 
 <details open="open">
@@ -21,6 +23,7 @@
       </ul>
     </li>
     <li><a href="#installation">Installation</a></li>
+    <li><a href="#usage">Usage</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -31,24 +34,27 @@
 
 ![Google Books Screen Shot](https://github.com/nikolaybutnik/google-books-search/blob/main/client/public/assets/images/google-books-img.png?raw=true)
 
-PLACEHOLDER
+Google Books Search is a web application backed by Google Books API and MongoDB, which allows the user to search for books by keywords, and adding potential future reads to a saved list.
 
 ### Built With
 
 - [React](https://reactjs.org/)
 - [Bootstrap](https://getbootstrap.com/)
-
-## Getting Started
-
-PLACEHOLDER
+- [Google Books API](https://developers.google.com/books/docs/overview)
 
 ## Installation
 
-PLACEHOLDER
+To install the application locally, run `npm install` to install all dependencies required to run it.
+
+## Usage
+
+To start the application locally, run `node server.js` or `npm run start` from the CLI, and then navigate to localhost:3000 in the browser. [The app is also hosted on Heroku.](https://infinite-fortress-13464.herokuapp.com/)
+
+This application uses Google Books API to make a query using keywords entered by the user into the search bar on the `Search` page. The displayed results each have a cover image, author, and a brief description. Each result has a `View` button to view more information on the book in a new tab, or save the book to the database. Clicking on `Saved` in the nav bar will bring the user to the favorites page. This page makes a query to the database to get and display a list of all books saved by the user. Each entry on this page also has a `Delete` button, which will remove the book from the database, and thus from this screen.
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to be, learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
