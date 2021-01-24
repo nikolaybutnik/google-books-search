@@ -45,7 +45,7 @@ app.post('/books', (req, res) => {
 app.delete('/books/:id', async (req, res) => {
   const bookId = req.params.id
   const deletedBook = await Book.findById(bookId)
-  Book.deleteOne({ _id: ObjectId(bookId) })
+  Book.deleteOne({ _id: mongoose.Types.ObjectId(bookId) })
     .then(() => {
       res.json({ data: deletedBook })
     })
