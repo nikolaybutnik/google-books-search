@@ -29,7 +29,7 @@
 
 ## About The Project
 
-![Google Books Screen Shot](https://github.com/nikolaybutnik/google-books-search/blob/master/client/public/assets/images/google-books-img.png?raw=true)
+![Google Books Screen Shot](https://github.com/nikolaybutnik/google-books-search/blob/main/client/public/assets/images/google-books-img.png?raw=true)
 
 PLACEHOLDER
 
